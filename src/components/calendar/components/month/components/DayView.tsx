@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useEvent } from "../hooks/useEvent";
 import { Day } from "../../../model";
-import { DayViewStyle as S } from "./styles";
+import { DayViewStyle } from "./styles";
+const { DayViewContainer, EventContainer, Events, Title } = DayViewStyle
 
 type DayViewProps = {
   day: Day
@@ -9,24 +10,20 @@ type DayViewProps = {
 
 const DayView = ({ day }: DayViewProps) => {
   const { events } = useEvent(day);
-  useEffect(() => {
-    if (events.length > 0)
-      console.log(events)
-  }, [events])
   return (
-    <S.DayViewContainer>
-      <S.Title>{day.day}</S.Title>
-      <S.Events>
+    <DayViewContainer>
+      <Title>{day.day}</Title>
+      <Events>
         <div>
           {events.map(event => (
-            <S.EventContainer key={event.id}>
+            <EventContainer key={event.id}>
               {event.title}
-            </S.EventContainer>
+            </EventContainer>
           ))}
         </div>
-      </S.Events>
+      </Events>
 
-    </S.DayViewContainer>
+    </DayViewContainer>
   );
 }
 

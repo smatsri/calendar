@@ -8,7 +8,6 @@ export const Flex = styled.div`
   }
 `
 export const WeeksContainer = styled(ContainerAndRow)`
-
 `
 export const WeekRow = styled(Row)`
   display: flex;
@@ -101,8 +100,6 @@ export type DayContainerProps = {
   selected?: boolean
   dayOfWeek: number
 }
-
-
 
 export namespace DayViewStyle {
 
