@@ -130,7 +130,7 @@ border-radius: 0.5rem;
 `
 export const EventTitle = styled.div``
 
-export const _Events = styled.div`
+export const EventsContainer = styled.div`
 position: relative;
 flex: 1;
 overflow: hidden;
@@ -141,9 +141,9 @@ overflow: hidden;
 }
 `
 export const Events = ({ children }: { children: any }) => (
-  <_Events>
+  <EventsContainer>
     <div>
       {children}
     </div>
-  </_Events>
+  </EventsContainer>
 );
