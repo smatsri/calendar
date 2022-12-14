@@ -1,5 +1,5 @@
 import styled, { css, DefaultTheme } from "styled-components";
-import { ContainerAndRow, Row, containerCss } from "../../layout/styles/VericalContainer";
+import { ContainerAndRow, Row, containerCss } from "../../layout/VericalContainer";
 
 export const Flex = styled.div`
   display: flex;
