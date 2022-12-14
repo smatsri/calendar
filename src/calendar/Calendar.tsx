@@ -12,7 +12,7 @@ const Calendar = ({ }: CalendarProps) => {
   const { display } = useCalendar()
   return (
     <ThemeProvider theme={theme}>
-      <CalendarContainer>
+      <CalendarContainer sideMenuOpen={false}>
         <Row>
           <Header />
         </Row>

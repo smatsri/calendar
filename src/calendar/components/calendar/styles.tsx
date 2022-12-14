@@ -1,16 +1,22 @@
 import styled from "styled-components";
-import { Container } from "./styles/VericalContainer";
+import { Container, containerCss } from "./styles/VericalContainer";
 
-export const CalendarContainer = styled(Container)`
+
+type CalendarContainerProps = {
+  sideMenuOpen?: boolean
+}
+export const CalendarContainer = styled.div<CalendarContainerProps>`
+  ${containerCss};
   text-align: center;
   position: relative;
-  right: 10px;
+  right: ${ props => props.sideMenuOpen ? "90vw" : "0" };
+  transition: right 0.8s;
 `
 
 export const HeaderContainer = styled.div`
-  height: ${({theme}) => theme.footer.height}px;
+  height: ${({ theme }) => theme.footer.height}px;
 `
 
 export const FooterContainer = styled.div`
-  height: ${(a) =>a.theme.footer.height}px; 
+  height: ${(a) => a.theme.footer.height}px; 
 `
