@@ -3,7 +3,7 @@ import { Day } from "../../../model";
 import { CalendarDate, CalendarEvent } from "../../../model/calendar-event";
 import { useEventsService } from "../../../hooks/useEventsService";
 
-export const useEvent = (day: Day) => {
+export const useDayView = (day: Day) => {
   const [events, setEvents] = useState<CalendarEvent[]>([]);
   const service = useEventsService()
 

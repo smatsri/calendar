@@ -101,44 +101,49 @@ export type DayContainerProps = {
   dayOfWeek: number
 }
 
-export namespace DayViewStyle {
-
-  export const DayViewContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    height:100%;
-  `
 
 
-  export const EventContainer = styled.div`
-    flex: 1;
-    height: 100%;
-    margin: 2px 4px;
-    color: white;
-    text-align: right;
-    box-sizing: content-box;
-    display: flex;
-  ::before{
-    content: "";
-    display: block;
-    width: 0.3rem;
-    background-color: blue;
-    margin-left:0.5rem;
-    border-radius: 0.5rem;
-  }
+export const DayViewContainer = styled.div`
+display: flex;
+flex-direction: column;
+height:100%;
+`
 
-  `
-  export const Title = styled.div``
 
-  export const Events = styled.div`
-    position: relative;
-    flex: 1;
-    overflow: hidden;
-    > div {
-      position: absolute;
-      width: 100%;
-      top:0;
-    }
-  `
-
+export const EventContainer = styled.div`
+flex: 1;
+height: 100%;
+margin: 2px 4px;
+color: white;
+text-align: right;
+box-sizing: content-box;
+display: flex;
+::before{
+content: "";
+display: block;
+width: 0.3rem;
+background-color: blue;
+margin-left:0.5rem;
+border-radius: 0.5rem;
 }
+
+`
+export const EventTitle = styled.div``
+
+export const _Events = styled.div`
+position: relative;
+flex: 1;
+overflow: hidden;
+> div {
+  position: absolute;
+  width: 100%;
+  top:0;
+}
+`
+export const Events = ({ children }: { children: any }) => (
+  <_Events>
+    <div>
+      {children}
+    </div>
+  </_Events>
+);

@@ -1,28 +1,23 @@
-import { useEffect } from "react";
-import { useEvent } from "../hooks/useEvent";
+import { useDayView } from "../hooks/useDayView";
 import { Day } from "../../../model";
-import { DayViewStyle } from "./styles";
-const { DayViewContainer, EventContainer, Events, Title } = DayViewStyle
+import { DayViewContainer, EventContainer, Events, EventTitle } from "./styles";
 
 type DayViewProps = {
   day: Day
 }
 
 const DayView = ({ day }: DayViewProps) => {
-  const { events } = useEvent(day);
+  const { events } = useDayView(day);
   return (
     <DayViewContainer>
-      <Title>{day.day}</Title>
+      <EventTitle>{day.day}</EventTitle>
       <Events>
-        <div>
-          {events.map(event => (
-            <EventContainer key={event.id}>
-              {event.title}
-            </EventContainer>
-          ))}
-        </div>
+        {events.map(event => (
+          <EventContainer key={event.id}>
+            {event.title}
+          </EventContainer>
+        ))}
       </Events>
-
     </DayViewContainer>
   );
 }
