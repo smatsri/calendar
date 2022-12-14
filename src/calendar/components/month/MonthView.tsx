@@ -1,8 +1,8 @@
-import { Container, Row } from "../calendar/styles/VericalContainer"
 import WeeksView from "./components/WeeksView"
 import Title from "./components/Title"
 
 import { useMonthView } from "./hooks/useMonthView"
+import { Container, Row } from "../layout/styles/VericalContainer"
 
 type MonthViewProps = {
   year: number

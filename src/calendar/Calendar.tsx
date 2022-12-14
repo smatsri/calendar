@@ -1,11 +1,12 @@
-import { useCalendar } from "./hooks/useCalendar";
-import Main from "./components/calendar/Main";
-import Header from "./components/calendar/Header";
-import Footer from "./components/calendar/Footer";
-import {  Row } from "./components/calendar/styles/VericalContainer";
 import { ThemeProvider } from "styled-components";
-import { theme } from "./components/calendar/styles/Theme";
-import { CalendarContainer } from "./components/calendar/styles";
+import Footer from "./components/layout/Footer";
+import Header from "./components/layout/Header";
+import Main from "./components/layout/Main";
+import { CalendarContainer } from "./components/layout/styles";
+import { theme } from "./components/layout/styles/Theme";
+import { Row } from "./components/layout/styles/VericalContainer";
+import { useCalendar } from "./hooks/useCalendar";
+
 
 type CalendarProps = {}
 const Calendar = ({ }: CalendarProps) => {
