@@ -1,5 +1,5 @@
-import WeeksView from "./components/WeeksView"
-import Title from "./components/Title"
+import WeeksView from "./WeeksView"
+import Title from "./Title"
 
 import { useMonthView } from "./hooks/useMonthView"
 import { Container, Row } from "../shared/VericalContainer"

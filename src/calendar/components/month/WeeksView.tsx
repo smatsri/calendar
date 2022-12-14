@@ -1,4 +1,4 @@
-import { Day, dayIsEq, Week } from "../../../model";
+import { Day, dayIsEq, Week } from "../../model";
 import DaysHeaders from "./DaysHeaders";
 import DayView from "./DayView";
 import { DayContainer, HeadersContainer, WeekRow, WeeksContainer, WeeksViewContainer } from "./styles";

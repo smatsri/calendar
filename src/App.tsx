@@ -1,5 +1,5 @@
 import Calendar from "./calendar/Calendar";
-import GlobalStyle from "./components/styles/GlobalStyle";
+import GlobalStyle from "./components/GlobalStyle";
 
 type AppProps = {}
 

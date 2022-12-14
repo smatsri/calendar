@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Day } from "../../../model";
-import { useTexts } from "../hooks/useTexts";
+import { Day } from "../../model";
+import { useTexts } from "./hooks/useTexts";
 import { StyledDayHeader } from "./styles";
 
 type DaysHeadersProps = {

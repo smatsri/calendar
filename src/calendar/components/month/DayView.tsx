@@ -1,5 +1,5 @@
-import { useDayView } from "../hooks/useDayView";
-import { Day } from "../../../model";
+import { useDayView } from "./hooks/useDayView";
+import { Day } from "../../model";
 import { DayViewContainer, EventContainer, Events, EventTitle } from "./styles";
 
 type DayViewProps = {
