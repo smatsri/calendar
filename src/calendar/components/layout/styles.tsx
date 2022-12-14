@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Container, containerCss } from "./VericalContainer";
+import { Container, containerCss } from "../shared/VericalContainer";
 
 
 type CalendarContainerProps = {

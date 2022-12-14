@@ -3,8 +3,8 @@ import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import Main from "./components/layout/Main";
 import { CalendarContainer } from "./components/layout/styles";
-import { theme } from "./components/layout/Theme";
-import { Row } from "./components/layout/VericalContainer";
+import { theme } from "./components/shared/Theme";
+import { Row } from "./components/shared/VericalContainer";
 import { useCalendar } from "./hooks/useCalendar";
 
 
