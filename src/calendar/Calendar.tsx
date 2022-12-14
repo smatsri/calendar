@@ -5,7 +5,7 @@ import Footer from "./components/calendar/Footer";
 import {  Row } from "./components/calendar/styles/VericalContainer";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./components/calendar/styles/Theme";
-import { CalendarContainer } from "./components/calendar/styles/Calendar";
+import { CalendarContainer } from "./components/calendar/styles";
 
 type CalendarProps = {}
 const Calendar = ({ }: CalendarProps) => {

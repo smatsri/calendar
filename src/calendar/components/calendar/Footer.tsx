@@ -1,10 +1,11 @@
-import { Container } from "./styles/Footer";
+import { FooterContainer } from "./styles";
+
 
 type FooterProps = {}
 
 const Footer = ({ }: FooterProps) => {
   return (
-    <Container></Container>
+    <FooterContainer></FooterContainer>
   );
 }
 

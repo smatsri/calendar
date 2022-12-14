@@ -16,6 +16,8 @@ body {
 
 #root {
   height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
 `;

@@ -1,12 +1,12 @@
-import {Container} from "./styles/Header"
+import { HeaderContainer } from "./styles";
 
 type HeaderProps = {}
 
 const Header = ({ }: HeaderProps) => {
   return (
-    <Container>
+    <HeaderContainer>
       
-    </Container>
+    </HeaderContainer>
   );
 }
 
