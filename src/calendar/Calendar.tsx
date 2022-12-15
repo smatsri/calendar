@@ -1,30 +1,20 @@
-import { ThemeProvider } from "styled-components";
-import Footer from "./components/layout/Footer";
-import Header from "./components/layout/Header";
-import Main from "./components/layout/Main";
-import { CalendarContainer } from "./components/layout/styles";
-import { theme } from "./components/shared/Theme";
-import { Row } from "./components/shared/VericalContainer";
+import MainSection from "./components/layout/MainSection";
+import SideMenu from "./components/layout/SideMenu";
+import { Layout } from "./components/layout/styles";
 import { useCalendar } from "./hooks/useCalendar";
 
 
 type CalendarProps = {}
 const Calendar = ({ }: CalendarProps) => {
-  const { display } = useCalendar()
+  const { display, sideMenuOpen, toggleSideMenu } = useCalendar()
   return (
-    <ThemeProvider theme={theme}>
-      <CalendarContainer sideMenuOpen={false}>
-        <Row>
-          <Header />
-        </Row>
-        <Row grow={1}>
-          <Main display={display} />
-        </Row>
-        <Row>
-          <Footer />
-        </Row>
-      </CalendarContainer>
-    </ThemeProvider>
+    <Layout>
+      <SideMenu open={sideMenuOpen} />
+      <MainSection
+        sideMenuOpen={sideMenuOpen}
+        display={display}
+        toggleSideMenu={toggleSideMenu} />
+    </Layout>
   )
 }
 
