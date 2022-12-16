@@ -18,6 +18,8 @@ export const CalendarContainer = styled.div<CalendarContainerProps>`
 export const HeaderContainer = styled.div`
   height: ${({ theme }) => theme.footer.height}px;
   display: flex;
+  align-items: center;
+  margin-right: 5px;
 `
 
 export const FooterContainer = styled.div`

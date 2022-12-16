@@ -10,7 +10,7 @@ type HeaderProps = {
 const Header = ({ sideMenuOpen, toggleSideMenu }: HeaderProps) => {
   
   return (
-    <HeaderContainer>
+    <HeaderContainer key={"asd"}>
       <Humburger opened={sideMenuOpen} size={30} onClick={toggleSideMenu} />
 
     </HeaderContainer>
