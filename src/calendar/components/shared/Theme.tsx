@@ -1,6 +1,7 @@
 export const theme = {
   header: {
-    height: 40
+    height: 40,
+    toggleButtonSize: 30
   },
   footer: {
     height: 40
