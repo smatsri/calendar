@@ -43,7 +43,7 @@ const Container = styled.div<HumburgerProps>`
     background-color: white;
     border-radius: 10px;
     height: 60%;
-    min-height: 8px;
+    min-height: 6px;
   }
 
   > div:nth-child(1), 

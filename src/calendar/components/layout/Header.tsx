@@ -11,10 +11,7 @@ const Header = ({ sideMenuOpen, toggleSideMenu }: HeaderProps) => {
   
   return (
     <HeaderContainer>
-      <Humburger opened={sideMenuOpen} size={40} onClick={toggleSideMenu} />
-      {/* <button onClick={toggleSideMenu}>
-        side menu 
-      </button> */}
+      <Humburger opened={sideMenuOpen} size={30} onClick={toggleSideMenu} />
 
     </HeaderContainer>
   );
