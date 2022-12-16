@@ -1,3 +1,5 @@
+import { useState } from "react";
+import Humburger from "../../../components/shared/Humburger";
 import { HeaderContainer } from "./styles";
 
 type HeaderProps = {
@@ -5,12 +7,14 @@ type HeaderProps = {
   toggleSideMenu: () => void
 }
 
-const Header = ({ sideMenuOpen, toggleSideMenu}: HeaderProps) => {
+const Header = ({ sideMenuOpen, toggleSideMenu }: HeaderProps) => {
+  
   return (
     <HeaderContainer>
-      <button onClick={toggleSideMenu}>
+      <Humburger opened={sideMenuOpen} size={40} onClick={toggleSideMenu} />
+      {/* <button onClick={toggleSideMenu}>
         side menu 
-      </button>
+      </button> */}
 
     </HeaderContainer>
   );
