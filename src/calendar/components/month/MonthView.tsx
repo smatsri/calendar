@@ -1,32 +1,35 @@
-import WeeksView from "./WeeksView"
-import Title from "./Title"
-
 import { useMonthView } from "./hooks/useMonthView"
-import { Container, Row } from "../shared/VericalContainer"
+import { dayIsEq } from "../../model"
+import MonthView from "../shared/MonthView";
+import { DayContainer } from "./styles";
+import DayView from "./DayView";
+
+
+const MonthDisplay = ({ year, month }: MonthViewProps) => {
+  const { selected, select } = useMonthView(year, month);
+
+  return (
+    <MonthView
+      month={month}
+      year={year}
+      DayView={({day}) => (
+        <DayContainer
+          key={`${day.year}${day.month}${day.day}`}
+          onClick={() => select(day)}
+          inactive={month !== day.month}
+          selected={selected && dayIsEq(selected, day)}
+          dayOfWeek={day.dayOfWeek}
+        >
+          <DayView day={day} />
+        </DayContainer>
+      )}
+    />
+  );
+}
+
+export default MonthDisplay;
 
 type MonthViewProps = {
   year: number
   month: number
 }
-
-const MonthView = ({ year, month }: MonthViewProps) => {
-  const { weeks, title, selected, setSelected } = useMonthView(year, month);
-
-  return (
-    <Container>
-      <Row>
-        <Title title={title} />
-      </Row>
-      <Row grow={1}>
-        <WeeksView
-          weeks={weeks}
-          currentMonth={month}
-          selected={selected}
-          selectDay={setSelected}
-        />
-      </Row>
-    </Container>
-  );
-}
-
-export default MonthView;

@@ -1,5 +1,5 @@
 import styled, { css, ThemeProvider } from "styled-components";
-import { theme } from "../shared/Theme";
+import { theme } from "../shared/theme";
 import { containerCss } from "../shared/VericalContainer";
 
 const MENU_WIDTH = 90;

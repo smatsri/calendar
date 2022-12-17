@@ -68,7 +68,7 @@ export const getPrevMonth = (month: Month) => offsetMonth(month, -1)
 
 export const getNextMonth = (month: Month) => offsetMonth(month, 1)
 
-const getMonths = (year: number) => {
+export const getMonths = (year: number) => {
   let months: Month[] = []
   for (let i = 0; i < 12; i++) {
     months.push(Month(year, i))

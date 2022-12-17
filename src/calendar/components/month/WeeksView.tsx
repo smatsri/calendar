@@ -38,6 +38,7 @@ const WeeksView = ({ weeks, currentMonth, selected, selectDay }: WeeksViewProps)
 export default WeeksView
 
 type WeeksViewProps = {
+  DayView: (day:Day) => JSX.Element
   weeks: Week[]
   currentMonth: number
   selected?: Day

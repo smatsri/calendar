@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { TitleContainer } from "./styles";
 
 type TitleProps = {
   title: string
@@ -16,3 +15,7 @@ const Title = ({ title }: TitleProps) => {
 }
 
 export default Title;
+
+export const TitleContainer = styled.div`
+  font-size:1.2rem;
+`
