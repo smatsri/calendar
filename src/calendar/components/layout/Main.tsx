@@ -1,5 +1,5 @@
 import { MainDisplay } from "../../hooks/useCalendar";
-import MonthDisplay from "../month/MonthView";
+import MonthDisplay from "../month/MonthDisplay";
 import YearView from "../year/YearView";
 
 type MainProps = {

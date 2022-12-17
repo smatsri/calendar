@@ -1,4 +1,5 @@
-import MonthDisplay from "../month/MonthView";
+import MonthDisplay from "../month/MonthDisplay";
+import MonthView from "../shared/MonthView";
 import { useYearView } from "./hooks/useYeayView";
 import { YearViewContainer } from "./styles";
 
@@ -11,8 +12,16 @@ const YearView = ({ year }: YearViewProps) => {
 
   return (
     <YearViewContainer>
-      {months.map(month =>(
-        <MonthDisplay year={year} month={month} />
+      {months.map(month => (
+        <MonthView
+          year={year}
+          month={month}
+          DayView={({ day }) => (
+            <div>
+              {day.day}
+            </div>
+          )}
+        />
       ))}
     </YearViewContainer>
   );
