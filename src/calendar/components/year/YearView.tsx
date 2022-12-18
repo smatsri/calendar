@@ -1,5 +1,5 @@
 import MonthDisplay from "../month/MonthDisplay";
-import MonthView from "../shared/MonthView";
+import MonthView from "../shared/month/MonthView";
 import { useYearView } from "./hooks/useYeayView";
 import { YearViewContainer } from "./styles";
 

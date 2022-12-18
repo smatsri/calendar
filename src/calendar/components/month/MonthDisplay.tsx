@@ -1,6 +1,6 @@
 import { useMonthView } from "./hooks/useMonthView"
 import { dayIsEq } from "../../model"
-import MonthView from "../shared/MonthView";
+import MonthView from "../shared/month/MonthView";
 import { DayContainer } from "./styles";
 import DayView from "./DayView";
 
