@@ -1,6 +1,7 @@
 export const theme = {
   header: {
-    height: 40
+    height: 40,
+    toggleButtonSize: 30
   },
   footer: {
     height: 40
@@ -13,6 +14,9 @@ export const theme = {
     hover: '#c66a6a77',
     inactiveFri: '#1f1f6d',
     inactiveSat: '#400707'
+  },
+  years: {
+    bp: 260
   }
 }
 
