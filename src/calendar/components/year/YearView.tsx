@@ -14,11 +14,12 @@ const YearView = ({ year }: YearViewProps) => {
     <YearViewContainer>
       {months.map(month => (
         <MonthView
+          key={month}
           year={year}
           month={month}
           DayView={({ day }) => (
             <div>
-              {day.day}
+             {day.day}
             </div>
           )}
         />

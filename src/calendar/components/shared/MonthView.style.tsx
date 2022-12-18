@@ -40,9 +40,7 @@ font-size: 0.8rem;
 padding: 0 1rem;
 `
 
-export const StyledDayHeader = styled.div`
-padding:10px;
-`
+export const StyledDayHeader = styled.div``
 
 type P = DayContainerProps & { theme: DefaultTheme }
 const getDayColor = ({ inactive, dayOfWeek, theme: { weeks } }: P) => {
@@ -108,4 +106,6 @@ display: flex;
 flex-direction: column;
 height:100%;
 `
+
+export const DayHeaderBreakPoint = 0
 

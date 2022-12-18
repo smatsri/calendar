@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Container, Row } from "../shared/VericalContainer"
 import { Day, Week } from "../../model"
 import { StyledDayHeader, WeekRow, WeeksContainer, WeeksViewContainer, HeadersContainer, TitleContainer } from "./MonthView.style"
 import { useTexts } from "../../hooks/useTexts"
 import { useMonthView } from "./hooks/useMonthView"
+import { useTheme } from "styled-components"
 
 export const MonthView = ({ year, month, DayView }: MonthViewProps) => {
   const { weeks, title, selected, setSelected } = useMonthView(year, month);
@@ -39,9 +40,8 @@ const WeeksView = ({ weeks, DayView }: WeeksViewProps) => {
 
   return (
     <WeeksViewContainer>
-      <HeadersContainer>
-        <DaysHeaders days={weeks[0]} />
-      </HeadersContainer>
+      <Header days={weeks[0]} />
+
       <WeeksContainer grow={1}>
         {weeks.map((w) => {
           return (
@@ -59,21 +59,57 @@ const WeeksView = ({ weeks, DayView }: WeeksViewProps) => {
 }
 const weekKey = (w: Day[]) => `${w[0].year}-${w[0].month}-${w[0].day}`
 
-const DaysHeaders = ({ days }: DaysHeadersProps) => {
+
+
+const Header = ({ days }: DaysHeadersProps) => {
   const [titles, setTitles] = useState<string[]>([])
+  const elRef = useRef<HTMLDivElement>();
   const texts = useTexts()
+  const theme = useTheme();
 
   useEffect(() => {
     const t = days.map(day => texts.days[day.dayOfWeek]);
     setTitles(t)
   }, [])
 
+  useEffect(() => {
+
+    updateTitles();
+    
+    window.addEventListener('resize',updateTitles);
+
+    return () => {
+      window.removeEventListener('resize',updateTitles);
+    }
+    
+
+    function updateTitles() {
+      if (!elRef.current) {
+        return
+      }
+  
+      const width = elRef.current.offsetWidth;
+
+      const dayTexts = getDayTexts(width)
+  
+      const _titles = days.map(day => dayTexts[day.dayOfWeek]);
+      setTitles(_titles)
+  
+    }
+
+    function getDayTexts(width: number) {
+      return width > theme.years.bp ? texts.days : texts.daysShort;
+    }
+
+  }, [elRef,theme]);
   return (
-    <>
-      {titles.map(title => (
-        <StyledDayHeader key={title}>{title}</StyledDayHeader>)
-      )}
-    </>
+    <div ref={elRef as any}>
+      <HeadersContainer >
+        {titles.map(title => (
+          <StyledDayHeader key={title}>{title}</StyledDayHeader>)
+        )}
+      </HeadersContainer>
+    </div>
   );
 }
 
@@ -82,7 +118,7 @@ export default MonthView;
 type MonthViewProps = {
   year: number
   month: number
-  DayView: ({day}: {day:Day}) => JSX.Element
+  DayView: ({ day }: { day: Day }) => JSX.Element
 }
 
 type TitleProps = {
@@ -90,7 +126,7 @@ type TitleProps = {
 }
 
 type WeeksViewProps = {
-  DayView: ({day}:{day:Day}) => JSX.Element
+  DayView: ({ day }: { day: Day }) => JSX.Element
   weeks: Week[]
   currentMonth: number
   selected?: Day
