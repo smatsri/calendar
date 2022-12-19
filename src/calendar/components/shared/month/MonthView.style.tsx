@@ -79,10 +79,7 @@ const getDayBorderColor = ({ selected, theme: { weeks: colors } }: P) => {
 }
 
 export const DayContainer = styled.div<DayContainerProps>`
-  padding: 1px;
-  border-radius: 0.4rem;
   color: ${getDayColor};
-  ${getDayBorderColor};
   overflow: hidden;
 
 `

@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const useCalendar = (defDisplay = YearDisplay(2000)) => {
+export const useCalendar = (defDisplay = MonthDisplay(2000, 0)) => {
   const [display, setDisplay] = useState<MainDisplay>(defDisplay)
   const [sideMenuOpen, setSideMenuOpen] = useState(false);
 
