@@ -9,11 +9,11 @@ type MainProps = {
 const Main = ({ display }: MainProps) => {
   
   if (display.type === "month") {
-    return <MonthDisplay month={display.month} year={display.year} />
+    return <MonthDisplay key={"month-display"} month={display.month} year={display.year} />
   }
 
   if (display.type === "year") {
-    return <YearView year={display.year} />
+    return <YearView key={"year-display"} year={display.year} />
   }
 
 

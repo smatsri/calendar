@@ -10,9 +10,10 @@ const MonthDisplay = ({ year, month }: MonthViewProps) => {
 
   return (
     <MonthView
+      key={year + '-' + month}
       month={month}
       year={year}
-      DayView={({day}) => (
+      DayView={({ day }) => (
         <DayContainer
           key={`${day.year}${day.month}${day.day}`}
           onClick={() => select(day)}
