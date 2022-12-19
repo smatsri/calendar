@@ -6,10 +6,10 @@ import { useCalendar } from "./hooks/useCalendar";
 
 type CalendarProps = {}
 const Calendar = ({ }: CalendarProps) => {
-  const { display, sideMenuOpen, toggleSideMenu } = useCalendar()
+  const { display, sideMenuOpen, toggleSideMenu, show } = useCalendar()
   return (
     <Layout>
-      <SideMenu open={sideMenuOpen} />
+      <SideMenu open={sideMenuOpen} show={show} />
       <MainSection
         sideMenuOpen={sideMenuOpen}
         display={display}

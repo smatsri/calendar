@@ -7,8 +7,13 @@ export const useCalendar = (defDisplay = YearDisplay(2000)) => {
   return {
     display,
     sideMenuOpen,
-    setMonthView(year: number, month: number) {
-      setDisplay(MonthDisplay(year, month))
+    show(display: "year" | "month") {
+      if (display === "year") {
+        setDisplay(YearDisplay(2000))
+      } else if (display === "month") {
+        setDisplay(MonthDisplay(2000, 0))
+      }
+      setSideMenuOpen(false)
     },
     toggleSideMenu() {
       setSideMenuOpen(!sideMenuOpen)
@@ -21,10 +26,10 @@ type MonthDisplay = {
   year: number
   month: number
 }
-const MonthDisplay = (year: number, month: number): MonthDisplay => ({ 
-  type: 'month', 
-  year, 
-  month 
+const MonthDisplay = (year: number, month: number): MonthDisplay => ({
+  type: 'month',
+  year,
+  month
 })
 
 type YearDisplay = {
@@ -32,8 +37,8 @@ type YearDisplay = {
   year: number
 }
 
-export const YearDisplay = (year = 2000): YearDisplay => ({ 
-  type: 'year', 
+export const YearDisplay = (year = 2000): YearDisplay => ({
+  type: 'year',
   year
 })
 
