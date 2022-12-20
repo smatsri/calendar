@@ -3,9 +3,10 @@ import { dayIsEq } from "../../model"
 import MonthView from "../shared/month/MonthView";
 import { DayContainer } from "./styles";
 import DayView from "./DayView";
+import { useCalendarContext } from "../../Context";
 
-
-const MonthDisplay = ({ year, month }: MonthViewProps) => {
+const MonthDisplay = () => {
+  const { selected: [year, month] } = useCalendarContext()
   const { selected, select } = useMonthView(year, month);
 
   return (
@@ -30,7 +31,4 @@ const MonthDisplay = ({ year, month }: MonthViewProps) => {
 
 export default MonthDisplay;
 
-type MonthViewProps = {
-  year: number
-  month: number
-}
+

@@ -1,12 +1,10 @@
+import { useCalendarContext } from "../../Context";
 import MonthView from "../shared/month/MonthView";
 import { useYearView } from "./hooks/useYeayView";
 import { YearViewContainer } from "./styles";
 
-type YearViewProps = {
-  year: number
-}
-
-const YearView = ({ year }: YearViewProps) => {
+const YearView = () => {
+  const {selected:[year]} = useCalendarContext();
   const { months } = useYearView(year);
 
   return (

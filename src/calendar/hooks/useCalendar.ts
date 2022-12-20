@@ -1,18 +1,18 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { MainDisplay, SelectedDate } from "../model/calendar-context";
 
-export const useCalendar = (defDisplay = MonthDisplay(2000, 0)) => {
+export const useCalendar = (defDisplay: MainDisplay = "month", defYeay = 2000, defMonth = 0) => {
   const [display, setDisplay] = useState<MainDisplay>(defDisplay)
+  const [selected, setSelected] = useState<SelectedDate>([defYeay, defMonth])
   const [sideMenuOpen, setSideMenuOpen] = useState(false);
 
   return {
     display,
+    selected,
     sideMenuOpen,
+    setSelected,
     show(display: "year" | "month") {
-      if (display === "year") {
-        setDisplay(YearDisplay(2000))
-      } else if (display === "month") {
-        setDisplay(MonthDisplay(2000, 0))
-      }
+      setDisplay(display)
       setSideMenuOpen(false)
     },
     toggleSideMenu() {
@@ -20,26 +20,3 @@ export const useCalendar = (defDisplay = MonthDisplay(2000, 0)) => {
     }
   }
 }
-
-type MonthDisplay = {
-  type: 'month'
-  year: number
-  month: number
-}
-const MonthDisplay = (year: number, month: number): MonthDisplay => ({
-  type: 'month',
-  year,
-  month
-})
-
-type YearDisplay = {
-  type: 'year'
-  year: number
-}
-
-export const YearDisplay = (year = 2000): YearDisplay => ({
-  type: 'year',
-  year
-})
-
-export type MainDisplay = YearDisplay | MonthDisplay 
