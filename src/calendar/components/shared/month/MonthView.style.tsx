@@ -78,7 +78,6 @@ export const TitleContainer = styled.div`
 
 export type DayContainerProps = {
   inactive?: boolean
-  selected?: boolean
   dayOfWeek: number
 }
 

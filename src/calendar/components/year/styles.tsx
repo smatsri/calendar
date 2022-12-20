@@ -16,7 +16,8 @@ export const MonthsContrainer = styled.div`
   display: grid;
   flex: 1;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 60px 10px;
+  
   > div {
     cursor: pointer;
   }

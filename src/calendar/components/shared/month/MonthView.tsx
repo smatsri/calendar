@@ -24,7 +24,10 @@ export const MonthView = ({ year, month, DayView }: MonthViewProps) => {
               return (
                 <WeekRow grow={1} key={weekKey(w)} >
                   {w.map((day, i) => (
-                    <DayContainer key={i} dayOfWeek={day.dayOfWeek}>
+                    <DayContainer key={i} 
+                      dayOfWeek={day.dayOfWeek}
+                      inactive={month !== day.month}
+                      >
                       <DayView day={day} />
                     </DayContainer>
                   )

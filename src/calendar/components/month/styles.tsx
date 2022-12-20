@@ -1,30 +1,4 @@
-import styled, { css, DefaultTheme } from "styled-components";
-
-
-
-type P = DayContainerProps & { theme: DefaultTheme }
-const getDayColor = ({ inactive, dayOfWeek, theme: { weeks } }: P) => {
-
-  if (dayOfWeek === 5 && inactive) {
-    return weeks.inactiveFri
-  }
-
-  if (dayOfWeek === 5) {
-    return weeks.fri
-  }
-
-  if (dayOfWeek === 6 && inactive) {
-    return weeks.inactiveSat
-  }
-
-  if (dayOfWeek === 6) {
-    return weeks.sat
-  }
-
-  if (inactive) {
-    return weeks.inactive
-  }
-}
+import styled, { css } from "styled-components";
 
 const getDayBorderColor = ({ selected, theme: { weeks: colors } }: P) => {
   if (selected) {
@@ -49,7 +23,6 @@ export const DayContainer = styled.div<DayContainerProps>`
     flex: 1;
     border: 1px solid transparent;
     border-radius: 0.4rem;
-    color: ${getDayColor};
     ${getDayBorderColor};
     box-sizing:border-box;
   }
