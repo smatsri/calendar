@@ -1,5 +1,5 @@
 import styled, { css, DefaultTheme } from "styled-components";
-import { ContainerAndRow, Row, containerCss } from "../shared/VericalContainer";
+import { ContainerAndRow, Row, containerCss } from "../VericalContainer";
 
 export const Flex = styled.div`
   display: flex;
@@ -79,12 +79,7 @@ const getDayBorderColor = ({ selected, theme: { weeks: colors } }: P) => {
 }
 
 export const DayContainer = styled.div<DayContainerProps>`
-  margin:5px;
-  border: 1px solid transparent;
-  padding: 1px;
-  border-radius: 0.4rem;
   color: ${getDayColor};
-  ${getDayBorderColor};
   overflow: hidden;
 
 `

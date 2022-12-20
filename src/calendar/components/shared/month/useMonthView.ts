@@ -7,7 +7,6 @@ import { Day, getWeeks, Month } from "../../../model"
 export const useMonthView = (year:number, month: number) => {
   const [weeks, setWeeks] = useState<Day[][]>([])
   const [title, setTitle] = useState<string>("")
-  const [selected, setSelected] = useState<Day>(() => Day(year, month,4))
   const texts = useTexts();
 
   useEffect(() => {
@@ -27,9 +26,7 @@ export const useMonthView = (year:number, month: number) => {
 
   return {
     weeks,
-    title,
-    selected,
-    setSelected
+    title
   }
 
 }

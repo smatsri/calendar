@@ -1,17 +1,15 @@
-import { MainDisplay } from "../../hooks/useCalendar";
+import { useCalendarContext } from "../../Context";
+import { MainDisplay } from "../../model/calendar-context";
 import { Row } from "../shared/VericalContainer";
 import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
 import { CalendarContainer } from "./styles";
 
-type MainProps = {
-  display: MainDisplay
-  sideMenuOpen?: boolean
-  toggleSideMenu: () => void
-}
+type MainProps = {}
 
-const MainSection = ({ display, sideMenuOpen, toggleSideMenu }: MainProps) => {
+const MainSection = ({ }: MainProps) => {
+  const { sideMenuOpen, toggleSideMenu, display } = useCalendarContext();
   const onClick = () => sideMenuOpen && toggleSideMenu();
   return (
     <CalendarContainer

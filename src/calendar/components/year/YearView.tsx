@@ -1,29 +1,43 @@
-import MonthDisplay from "../month/MonthDisplay";
-import MonthView from "../shared/MonthView";
+import { useCalendarContext } from "../../Context";
+import MonthView from "../shared/month/MonthView";
 import { useYearView } from "./hooks/useYeayView";
-import { YearViewContainer } from "./styles";
+import { DayViewContainer, HeaderContainer, MonthsContrainer, YearViewContainer } from "./styles";
 
-type YearViewProps = {
-  year: number
-}
-
-const YearView = ({ year }: YearViewProps) => {
+const YearView = () => {
+  const { selected: [year], show, setSelected } = useCalendarContext();
   const { months } = useYearView(year);
+
+  const select = (month: number) => {
+    setSelected([year, month])
+    show('month')
+  }
+
+  const setNextYear = () => setSelected([year - 1, 0])
+  const setPrevYear = () => setSelected([year + 1, 0])
 
   return (
     <YearViewContainer>
-      {months.map(month => (
-        <MonthView
-          key={month}
-          year={year}
-          month={month}
-          DayView={({ day }) => (
-            <div>
-             {day.day}
-            </div>
-          )}
-        />
-      ))}
+      <HeaderContainer>
+        <button onClick={setNextYear}>&lt;</button>
+        <div>{year}</div>
+        <button onClick={setPrevYear}>&gt;</button>
+      </HeaderContainer>
+      <MonthsContrainer>
+        {months.map(month => (
+          <div onClick={() => select(month)}>
+            <MonthView
+              key={year + '-' + month}
+              year={year}
+              month={month}
+              DayView={({ day }) => (
+                <DayViewContainer key={day.day + '-' + day.month + '-' + day.year}>
+                  {day.day}
+                </DayViewContainer>
+              )}
+            />
+          </div>
+        ))}
+      </MonthsContrainer>
     </YearViewContainer>
   );
 }

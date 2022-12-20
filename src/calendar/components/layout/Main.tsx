@@ -1,4 +1,4 @@
-import { MainDisplay } from "../../hooks/useCalendar";
+import { MainDisplay } from "../../model/calendar-context";
 import MonthDisplay from "../month/MonthDisplay";
 import YearView from "../year/YearView";
 
@@ -8,12 +8,12 @@ type MainProps = {
 
 const Main = ({ display }: MainProps) => {
   
-  if (display.type === "month") {
-    return <MonthDisplay month={display.month} year={display.year} />
+  if (display === "month") {
+    return <MonthDisplay  />
   }
 
-  if (display.type === "year") {
-    return <YearView year={display.year} />
+  if (display === "year") {
+    return <YearView />
   }
 
 

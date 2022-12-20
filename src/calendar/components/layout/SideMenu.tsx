@@ -1,13 +1,16 @@
+import { useCalendarContext } from "../../Context";
 import { SideMenuContainer } from "./styles";
 
 type SideMenuProps = {
-  open?: boolean
 }
 
-const SideMenu = ({ open }: SideMenuProps) => {
-  return (
-    <SideMenuContainer sideMenuOpen={open}>
+const SideMenu = ({ }: SideMenuProps) => {
+  const { show, sideMenuOpen } = useCalendarContext();
 
+  return (
+    <SideMenuContainer sideMenuOpen={sideMenuOpen}>
+      <div onClick={() => show('month')}>חודש</div>
+      <div onClick={() => show('year')}>שנה</div>
     </SideMenuContainer>
   );
 }
