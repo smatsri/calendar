@@ -66,18 +66,6 @@ const getDayColor = ({ inactive, dayOfWeek, theme: { weeks } }: P) => {
   }
 }
 
-const getDayBorderColor = ({ selected, theme: { weeks: colors } }: P) => {
-  if (selected) {
-    return css`border-color: ${colors.selected};`
-  }
-
-  return css`
-  &:hover {
-    border-color: ${colors.hover};
-  }
-`
-}
-
 export const DayContainer = styled.div<DayContainerProps>`
   color: ${getDayColor};
   overflow: hidden;
