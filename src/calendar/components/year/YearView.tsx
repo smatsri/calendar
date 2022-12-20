@@ -12,8 +12,6 @@ const YearView = () => {
     show('month')
   }
 
-  console.log(year)
-
   return (
     <YearViewContainer>
       <HeaderContainer>
