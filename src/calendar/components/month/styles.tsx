@@ -39,14 +39,20 @@ const getDayBorderColor = ({ selected, theme: { weeks: colors } }: P) => {
 }
 
 export const DayContainer = styled.div<DayContainerProps>`
-  border: 1px solid transparent;
-  border-radius: 0.4rem;
-  color: ${getDayColor};
-  ${getDayBorderColor};
+  padding: 5px;
   overflow: hidden;
-  height: 100%;
-  box-sizing:border-box;
+  height: calc(100% - 10px);
+  display: flex;
+  flex-direction: column;
 
+  >div {
+    flex: 1;
+    border: 1px solid transparent;
+    border-radius: 0.4rem;
+    color: ${getDayColor};
+    ${getDayBorderColor};
+    box-sizing:border-box;
+  }
 `
 
 export const TitleContainer = styled.div`
@@ -62,7 +68,6 @@ export type DayContainerProps = {
 export const DayViewContainer = styled.div`
 display: flex;
 flex-direction: column;
-height:100%;
 `
 
 
@@ -75,12 +80,12 @@ text-align: right;
 box-sizing: content-box;
 display: flex;
 ::before{
-content: "";
-display: block;
-width: 0.3rem;
-background-color: blue;
-margin-left:0.5rem;
-border-radius: 0.5rem;
+  content: "";
+  display: block;
+  width: 0.3rem;
+  background-color: blue;
+  margin-left:0.5rem;
+  border-radius: 0.5rem;
 }
 
 `
