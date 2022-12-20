@@ -6,7 +6,10 @@ export const YearViewContainer = styled.div`
 `
 
 export const HeaderContainer = styled.div`
-
+  display: flex;
+  > div:nth-child(2) {
+    flex: 1;
+  }
 `
 
 export const MonthsContrainer = styled.div`

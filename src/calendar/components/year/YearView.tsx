@@ -12,10 +12,15 @@ const YearView = () => {
     show('month')
   }
 
+  const setNextYear = () => setSelected([year - 1, 0])
+  const setPrevYear = () => setSelected([year + 1, 0])
+
   return (
     <YearViewContainer>
       <HeaderContainer>
-        {year}
+        <button onClick={setNextYear}>&lt;</button>
+        <div>{year}</div>
+        <button onClick={setPrevYear}>&gt;</button>
       </HeaderContainer>
       <MonthsContrainer>
         {months.map(month => (
